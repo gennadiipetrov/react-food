@@ -1,15 +1,7 @@
 import ReactDOM from 'react-dom/client'
+import MainLayout from './layouts/MainLayout' /** QUESTION: vscode не смог дать подсказку на импорт этого файла, пришлось писать руками, надо разобраться почему. Плагин нужен какой-то для jsx? */
 
-/*
-Отобразить все рестораны из моковых данных. Отображаем рестораны друг за другом.
-Название ресторана
-Заголовок - Меню (h3)
-Список названий блюд (используем тег ul и li)
-Заголовок - Отзывы (h3)
-Список текстов отзывов (используем тег ul и li)
-Создать компонент Header и Footer. Разместить их до и после ресторанов соответственно;
-*/
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-  'start'
-)
+ReactDOM.createRoot(
+  document.getElementById('root')).render(
+    <MainLayout/>
+  )

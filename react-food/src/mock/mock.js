@@ -1,4 +1,4 @@
-export const restaurants = [
+const restaurants = [
     {
       id: "a757a0e9-03c1-4a2a-b384-8ac21dbe2fb2",
       name: "Dishoom",
@@ -140,3 +140,6 @@ export const restaurants = [
       ],
     },
   ];
+
+
+  export default restaurants;  /** QUESTION: почему-то через export const не взлетело, требует именно default. Это особенность JSX?  */
