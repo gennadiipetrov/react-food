@@ -1,26 +1,26 @@
-import React from 'react';
-import Dishes from './dishes/Dishes';
-import Reviews from './reviews/Reviews';
+import {useState} from 'react'
+import Restaurant from './Restaurant';
 
 const Restaurants = ({value}) => {
-  return (
-    <div>
+  const [restaurant, setRestaurant] = useState(value[0]);
 
-    {
-      value.map(restaurant =>
-        <div key={restaurant.id}>
-          <h2> Ресторан - {restaurant.name} </h2>
+  return !value 
+    ? (<div>No restaurants</div>)
+    : (
+      <div>
+        {
+          value.map(restaurant =>
+            <button 
+              key={restaurant.id} 
+              onClick={()=>setRestaurant(restaurant)}
+            >
+              {restaurant.name}-{restaurant.id.slice(0, 4)}
+            </button>
+          )}
 
-          <h3> Меню </h3>
-          <Dishes value={restaurant.menu}/>
-
-          <h3> Отзывы </h3>
-          <Reviews value={restaurant.reviews}/>
-        </div>
-      )}
-
-    </div>
-  );
+          <Restaurant value={restaurant}/>
+      </div>
+    );
 }
 
 export default Restaurants;

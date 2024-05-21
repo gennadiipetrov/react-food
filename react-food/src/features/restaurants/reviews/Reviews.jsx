@@ -1,8 +1,9 @@
-import React from 'react';
 import Review from './review/Review';
 
 const Reviews = ({value}) => {
-  return (
+    return !value
+    ? (<div>No reviews</div>)
+    : (
     <ul>
         {
         value.map(review => 

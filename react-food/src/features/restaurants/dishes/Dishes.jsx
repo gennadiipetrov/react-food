@@ -1,8 +1,9 @@
-import React from 'react';
 import Dish from './dish/Dish';
 
 const Dishes = ({value}) => {
-  return (
+  return !value
+  ? (<div>No dishes</div>)
+  : (
         <ul>
             {
             value?.map(dish => 

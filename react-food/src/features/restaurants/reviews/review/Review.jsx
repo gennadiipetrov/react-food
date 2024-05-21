@@ -1,7 +1,7 @@
-import React from 'react';
-
 const Review = ({value}) => {
-  return (
+  return !value
+  ? (<div>empty review</div>)
+  :  (
       <div>
         {value.user}-{value.rating}-{value.text}
       </div>
