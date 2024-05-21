@@ -1,6 +1,6 @@
 import React from 'react';
-import MenuItem from './menu-item/menuItem';
-import Review from './review/review';
+import Dishes from './dishes/Dishes';
+import Reviews from './reviews/Reviews';
 
 const Restaurants = ({value}) => {
   return (
@@ -9,36 +9,13 @@ const Restaurants = ({value}) => {
     {
       value.map(restaurant =>
         <div key={restaurant.id}>
+          <h2> Ресторан - {restaurant.name} </h2>
 
-          <h2>
-            Ресторан - {restaurant.name}
-          </h2>
+          <h3> Меню </h3>
+          <Dishes value={restaurant.menu}/>
 
-          <h3>
-            Меню
-          </h3>
-
-          <ul>
-            {
-              restaurant.menu.map(menuItem => 
-                <li key={menuItem.id}>
-                    <MenuItem value={menuItem}/>
-                </li>
-              )
-            }
-          </ul>
-
-          <h3>
-            Отзывы
-          </h3>
-
-          <ul>
-            {
-              restaurant.reviews.map(review => 
-                    <li key={review.id}><Review value={review}/></li>
-                )
-            }
-          </ul>
+          <h3> Отзывы </h3>
+          <Reviews value={restaurant.reviews}/>
         </div>
       )}
 

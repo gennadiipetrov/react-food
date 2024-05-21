@@ -1,7 +1,7 @@
 import React from 'react';
 import Ingredients from './ingredients/Ingredients';
 
-const MenuItem = ({value}) => {
+const Dish = ({value}) => {
   return (
       <div>
         <span> <strong>Название\цена:</strong>  {value.name}\{value.price}</span>
@@ -11,4 +11,4 @@ const MenuItem = ({value}) => {
     );
 }
 
-export default MenuItem;
+export default Dish;
