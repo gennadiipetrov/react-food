@@ -1,14 +1,14 @@
 import Dish from './dish/Dish';
 
-const Dishes = ({value}) => {
-  return !value
+const Dishes = ({prop}) => {
+  return !prop
   ? (<div>No dishes</div>)
   : (
         <ul>
             {
-            value?.map(dish => 
+            prop?.map(dish => 
                 <li key={dish.id}>
-                    <Dish value={dish}/>
+                    <Dish prop={dish}/>
                 </li>
             )
             }

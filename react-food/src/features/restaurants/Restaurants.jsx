@@ -1,24 +1,24 @@
 import {useState} from 'react'
-import Restaurant from './Restaurant';
+import Restaurant from './restaurant/Restaurant';
+import RestaurantTab from './restaurant-tab/RestaurantTab';
 
-const Restaurants = ({value}) => {
-  const [restaurant, setRestaurant] = useState(value[0]);
+const Restaurants = ({prop}) => {
+  const [restaurant, setRestaurant] = useState(prop[0]);
 
-  return !value 
+  return !prop 
     ? (<div>No restaurants</div>)
     : (
       <div>
         {
-          value.map(restaurant =>
-            <button 
+          prop.map(restaurant =>
+            <RestaurantTab 
               key={restaurant.id} 
               onClick={()=>setRestaurant(restaurant)}
-            >
-              {restaurant.name}-{restaurant.id.slice(0, 4)}
-            </button>
+              name={`${restaurant.name}-${restaurant.id.slice(0, 4)}`}
+            />
           )}
 
-          <Restaurant value={restaurant}/>
+          <Restaurant prop={restaurant}/>
       </div>
     );
 }

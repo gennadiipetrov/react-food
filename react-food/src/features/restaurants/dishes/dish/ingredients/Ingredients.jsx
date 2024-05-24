@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Ingredients = ({value}) => {
+const Ingredients = ({prop}) => {
   return  (
       <div>
-        <strong>Ингридиенты:</strong> { value.join(',')}
+        <strong>Ингридиенты:</strong> { prop.join(',')}
       </div>
     );
 }

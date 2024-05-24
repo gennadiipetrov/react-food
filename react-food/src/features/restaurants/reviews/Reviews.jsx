@@ -1,14 +1,14 @@
 import Review from './review/Review';
 
-const Reviews = ({value}) => {
-    return !value
+const Reviews = ({prop}) => {
+    return !prop
     ? (<div>No reviews</div>)
     : (
     <ul>
         {
-        value.map(review => 
+        prop.map(review => 
                 <li key={review.id}>
-                    <Review value={review}/>
+                    <Review prop={review}/>
                 </li>
             )
         }

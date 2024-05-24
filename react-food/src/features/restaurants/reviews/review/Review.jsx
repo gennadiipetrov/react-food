@@ -1,9 +1,9 @@
-const Review = ({value}) => {
-  return !value
+const Review = ({prop}) => {
+  return !prop
   ? (<div>empty review</div>)
   :  (
       <div>
-        {value.user}-{value.rating}-{value.text}
+        {prop.user}-{prop.rating}-{prop.text}
       </div>
     );
 }

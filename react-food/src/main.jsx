@@ -6,6 +6,6 @@ import restaurants from './mock/mock.js'
 ReactDOM.createRoot(
   document.getElementById('root')).render(
     <MainLayout>
-        <Restaurants value={restaurants}/>
+        <Restaurants prop={restaurants}/>
     </MainLayout>
   )
