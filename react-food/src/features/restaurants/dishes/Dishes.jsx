@@ -1,13 +1,14 @@
-import React from 'react';
 import Dish from './dish/Dish';
 
-const Dishes = ({value}) => {
-  return (
+const Dishes = ({prop}) => {
+  return !prop
+  ? (<div>No dishes</div>)
+  : (
         <ul>
             {
-            value?.map(dish => 
+            prop?.map(dish => 
                 <li key={dish.id}>
-                    <Dish value={dish}/>
+                    <Dish prop={dish}/>
                 </li>
             )
             }

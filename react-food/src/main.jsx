@@ -1,7 +1,11 @@
 import ReactDOM from 'react-dom/client'
-import MainLayout from './layouts/MainLayout' /** QUESTION: vscode не смог дать подсказку на импорт этого файла, пришлось писать руками, надо разобраться почему. Плагин нужен какой-то для jsx? */
+import MainLayout from './layouts/MainLayout'
+import Restaurants from './features/restaurants/Restaurants';
+import restaurants from './mock/mock.js'
 
 ReactDOM.createRoot(
   document.getElementById('root')).render(
-    <MainLayout/>
+    <MainLayout>
+        <Restaurants prop={restaurants}/>
+    </MainLayout>
   )

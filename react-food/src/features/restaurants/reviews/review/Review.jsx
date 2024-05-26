@@ -1,9 +1,9 @@
-import React from 'react';
-
-const Review = ({value}) => {
-  return (
+const Review = ({prop}) => {
+  return !prop
+  ? (<div>empty review</div>)
+  :  (
       <div>
-        {value.user}-{value.rating}-{value.text}
+        {prop.user}-{prop.rating}-{prop.text}
       </div>
     );
 }

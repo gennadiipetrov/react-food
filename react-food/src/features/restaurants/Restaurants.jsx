@@ -1,26 +1,26 @@
-import React from 'react';
-import Dishes from './dishes/Dishes';
-import Reviews from './reviews/Reviews';
+import {useState} from 'react'
+import Restaurant from './restaurant/Restaurant';
+import RestaurantTab from './restaurant-tab/RestaurantTab';
 
-const Restaurants = ({value}) => {
-  return (
-    <div>
+const Restaurants = ({prop}) => {
+  const [restaurant, setRestaurant] = useState(prop[0]);
 
-    {
-      value.map(restaurant =>
-        <div key={restaurant.id}>
-          <h2> Ресторан - {restaurant.name} </h2>
+  return !prop 
+    ? (<div>No restaurants</div>)
+    : (
+      <div>
+        {
+          prop.map(restaurant =>
+            <RestaurantTab 
+              key={restaurant.id} 
+              onClick={()=>setRestaurant(restaurant)}
+              name={`${restaurant.name}-${restaurant.id.slice(0, 4)}`}
+            />
+          )}
 
-          <h3> Меню </h3>
-          <Dishes value={restaurant.menu}/>
-
-          <h3> Отзывы </h3>
-          <Reviews value={restaurant.reviews}/>
-        </div>
-      )}
-
-    </div>
-  );
+          <Restaurant prop={restaurant}/>
+      </div>
+    );
 }
 
 export default Restaurants;
