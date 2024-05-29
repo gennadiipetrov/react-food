@@ -8,7 +8,7 @@ const Dish = ({prop}) => {
       <div>
         <span> 
           <strong>Блюдо\цена:</strong>  
-          {prop.name}\{prop.price} &nbsp; <DishCounter/>
+          {prop.name}\{prop.price} &nbsp; <DishCounter price={prop.price}/>
         </span>
 
         <Ingredients prop={prop.ingredients}/>

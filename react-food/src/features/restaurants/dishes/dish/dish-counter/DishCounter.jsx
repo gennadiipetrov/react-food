@@ -1,16 +1,17 @@
-import { useState } from "react";
+import { useCount } from "@shared/use-count/UseCount";
+import { useEffect } from "react";
 
-const DishCounter = () => {
-    const [count, setCount] = useState(0);
+const DishCounter = ({price}) => {
+    const { count, reset, increment, decrement, MAX } = useCount();
 
-    const increment = () => (count < 5) ? setCount(count + 1) : null;
-    const decrement = () => (count > 0) ? setCount(count - 1) : null;
+    useEffect(() => reset(), [reset]);
 
     return (
         <span>
-            <button onClick={increment}>&nbsp;+&nbsp;</button>
-            {count}
-            <button onClick={decrement}>&nbsp;-&nbsp;</button>
+            <button onClick={increment} disabled={count>=MAX}>&nbsp;+&nbsp;</button>
+                {count} 
+            <button onClick={decrement} disabled={count===0}>&nbsp;-&nbsp;</button>
+                &nbsp; count: {count} \ total cost: {count*price}
         </span>
     );
 }
