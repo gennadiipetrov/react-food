@@ -1,5 +1,6 @@
 import { useReducer } from "react";
 import { Rating } from "./rating/Rating";
+import Button from "@widgets/button/Button"
 
 const initValue = { fio: '', message: '', rating: 0 };
 
@@ -55,13 +56,13 @@ const ReviewForm = () => {
               MAX={5}
             />
 
-            <button onClick = {() => {
+            <Button onClick = {() => {
 
                 // backend request
                 console.log(form);
                 
                 dispatch({ type: "init" });
-            }}>Сохранить</button>
+            }}>Сохранить</Button>
         </div>
     );
 }

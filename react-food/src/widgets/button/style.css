@@ -1,0 +1,63 @@
+.button {
+    border-radius: 8px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: var(--white);
+    padding-top: 15px;
+    padding-bottom: 14px;
+    width: 189px;
+    height: 48px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: opacity 300ms ease-in-out, background-color 300ms ease-in-out, border 300ms ease-in-out;
+
+    --alternate-frame: var(--grey-3);
+    --alternate-frame-hovered: var(--black);
+    --alternate-frame-disabled: var(--grey-3);
+    --alternate-color: var(--grey-4);
+}
+
+.button:disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.button_primary {
+    background-color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.button_secondary {
+    background-color: var(--secondary);
+    border: 1px solid var(--secondary);
+}
+
+.button_alternate {
+    background-color: var(--alternate);
+    border: 1px solid var(--alternate-frame);
+    color: var(--alternate-color);
+}
+
+.button_primary:hover {
+    background-color: var(--primary-hovered);
+    border-color: var(--primary-hovered);
+}
+
+.button_secondary:hover {
+    background-color: var(--secondary-hovered);
+    border-color:var(--secondary-hovered);
+}
+
+.button_alternate:hover {
+    background-color: var(--alternate);
+    border-color: var(--alternate-frame-hovered);
+}
+
+.button_alternate:disabled {
+    border: 1px solid var(--alternate-frame-disabled);
+}

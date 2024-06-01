@@ -8,6 +8,8 @@ export default defineConfig({
     alias: {
       // eslint-disable-next-line no-undef
       '@shared': path.resolve(__dirname, './src/shared'),
+      '@widgets': path.resolve(__dirname, './src/widgets'),
+      '@features': path.resolve(__dirname, './src/features'),
     },
   },
   plugins: [react()],

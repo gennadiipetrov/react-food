@@ -1,0 +1,84 @@
+.toggler {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.toggler__input {
+    position: absolute;  /* хитрый хак -скрыть элемент, но чтобы в доме он был */
+    clip: rect(0,0,0,0); /* так как display: none отключит элемент */
+    opacity: 0;
+}
+
+.toggler__state {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.toggler__control {
+    position: relative;
+
+    display: inline-flex;
+
+    width: 52px;
+    height: 28px;
+
+    background: var(--white);
+    border: 1px solid var(--grey-2);
+    box-sizing: border-box;
+    border-radius: 16px;
+}
+
+.toggler__icon {
+    position: absolute;
+
+    top: 1px;
+    left: 2px;
+
+    fill: var(--grey-2);
+}
+
+.toggler__label {
+
+    display: inline-flex;
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+
+    color: var(--grey-4);
+
+    margin-left: 12px;
+}
+
+.toggler__input:checked ~ .toggler__state .toggler__control {
+    background: var(--blue-1);
+    border-color: var(--blue-1);
+}
+
+.toggler__input:checked ~ .toggler__state .toggler__control .toggler__icon {
+    transform: translateX(23px);
+    fill: var(--white);
+}
+
+.toggler__input:focus ~ .toggler__state .toggler__label {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.toggler__input[disabled] ~ .toggler__state .toggler__control {
+    cursor: not-allowed;
+
+    background: var(--grey-2);
+    opacity: 0.5;
+}
+
+.toggler__input[disabled] ~ .toggler__state .toggler__control .toggler__icon {
+    fill: var(--grey-3);
+}
+
+.toggler__input[disabled] ~ .toggler__state .toggler__label {
+    color: var(--grey-2);
+}
