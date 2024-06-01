@@ -19,6 +19,15 @@ const Restaurants = ({prop}) => {
           )}
 
           <Restaurant prop={restaurant}/>
+
+          // TODO удалить
+          <Restaurant prop={restaurant}/>
+
+          <Restaurant prop={restaurant}/>
+
+          <Restaurant prop={restaurant}/>
+
+          <Restaurant prop={restaurant}/>
       </div>
     );
 }
