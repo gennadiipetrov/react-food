@@ -49,7 +49,11 @@ const ReviewForm = () => {
                 />
             </div>
 
-            <Rating onClick = {value => dispatch({ type: "setRating", value})}/>
+            <Rating 
+              defaultValue={1}
+              onClick = {value => dispatch({ type: "setRating", value})}
+              MAX={5}
+            />
 
             <button onClick = {() => {
 

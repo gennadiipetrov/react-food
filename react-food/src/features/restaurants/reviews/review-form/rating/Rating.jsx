@@ -1,12 +1,17 @@
 
-export const Rating = ({ onClick }) => {
+export const Rating = ({ defaultValue = 1, onClick, MAX }) => {
   return (
     <div>
-      <button onClick = {() => onClick(1)}>1</button>
-      <button onClick = {() => onClick(2)}>2</button>
-      <button onClick = {() => onClick(3)}>3</button>
-      <button onClick = {() => onClick(4)}>4</button>
-      <button onClick = {() => onClick(5)}>5</button>
+      {
+        ([...Array(MAX)]).map((_, index) => 
+          <button 
+              key={index}
+              onClick = {() => onClick(index+1)}
+            >
+            {index+1}
+          </button>
+        )
+      }
     </div>
   );
 };

@@ -1,0 +1,11 @@
+.container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.line {
+    background: rgb(13 238 51);
+    height: 2px;
+}
