@@ -10,17 +10,22 @@ import {ThemeSwitcherContext} from '@shared/contexts/ThemeSwitcherContext'
  *  - button_secondary
  *  - button_alternate
  */
-const Button = ({ children, onClick, appearance = "button_primary", disabled = false}) => {
+const Button = ({ children, onClick, appearance = "button_primary", disabled = false, small = false}) => {
 
     /**
      * TODO Пока так, по хорошему тему менять надо по-другому.
      */
     const themeValue = useContext(ThemeSwitcherContext);
 
+    let classResult = themeValue ? "button button_alternate" : "button " + appearance;
+    if (small)
+        classResult += ' button_small';
+
     return <button 
-        className={themeValue ? "button button_alternate" : "button " + appearance} 
+        className={classResult} 
         disabled={disabled}
-        onClick={onClick}>{children}
+        onClick={onClick}>
+            {children}
     </button>;
 };
 

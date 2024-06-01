@@ -19,3 +19,9 @@
     max-width: var(--page-box-width);
     margin: 0 auto;
 }
+
+.header__controls {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+}

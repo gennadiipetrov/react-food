@@ -61,3 +61,9 @@
 .button_alternate:disabled {
     border: 1px solid var(--alternate-frame-disabled);
 }
+
+.button_small {
+    width: 48px;
+    height: 48px;
+}
+

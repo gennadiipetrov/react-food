@@ -9,9 +9,9 @@ const DishCounter = ({price}) => {
 
     return (
         <span>
-            <Button onClick={increment} disabled={count>=MAX}>&nbsp;+&nbsp;</Button>
+            <Button onClick={increment} disabled={count>=MAX} small={true}>&nbsp;+&nbsp;</Button>
                 {count} 
-            <Button onClick={decrement} disabled={count===0}>&nbsp;-&nbsp;</Button>
+            <Button onClick={decrement} disabled={count===0} small={true}>&nbsp;-&nbsp;</Button>
                 &nbsp; count: {count} \ total cost: {count*price}
         </span>
     );

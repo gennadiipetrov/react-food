@@ -4,7 +4,7 @@ import "./style.css";
 import {useState, useCallback} from 'react';
 
 const Toggler = ({ onToggle }) => {
-    const [toggleValue, setToggleValue] = useState();
+    const [toggleValue, setToggleValue] = useState(true);
 
     const toggle = useCallback(() => {
         setToggleValue(val => !val);
@@ -13,7 +13,7 @@ const Toggler = ({ onToggle }) => {
 
     return (
         <label className="toggler">
-            <input type="checkbox" className="toggler__input" onClick={toggle}/>
+            <input type="checkbox" className="toggler__input" value={toggleValue} onClick={toggle}/>
             <span className="toggler__state">
                 <span className="toggler__control">
                     <svg className="toggler__icon" width="24" height="24" viewBox="0 0 24 24" fill=""
