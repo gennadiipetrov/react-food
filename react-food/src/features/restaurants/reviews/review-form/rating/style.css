@@ -1,0 +1,4 @@
+.rating__buttons {
+    display: flex;
+    gap: 2px;
+}

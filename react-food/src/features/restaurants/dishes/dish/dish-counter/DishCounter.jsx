@@ -1,5 +1,6 @@
 import { useCount } from "@shared/use-count/UseCount";
 import { useEffect } from "react";
+import Button from '@widgets/button/Button'
 
 const DishCounter = ({price}) => {
     const { count, reset, increment, decrement, MAX } = useCount();
@@ -8,9 +9,9 @@ const DishCounter = ({price}) => {
 
     return (
         <span>
-            <button onClick={increment} disabled={count>=MAX}>&nbsp;+&nbsp;</button>
+            <Button onClick={increment} disabled={count>=MAX} small={true}>&nbsp;+&nbsp;</Button>
                 {count} 
-            <button onClick={decrement} disabled={count===0}>&nbsp;-&nbsp;</button>
+            <Button onClick={decrement} disabled={count===0} small={true}>&nbsp;-&nbsp;</Button>
                 &nbsp; count: {count} \ total cost: {count*price}
         </span>
     );

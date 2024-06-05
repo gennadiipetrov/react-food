@@ -1,7 +1,9 @@
+import Button from '@widgets/button/Button'
+
 const RestaurantTab = ({name, onClick}) => {
   return !name 
     ? (<div>No name</div>)
-    : (<button onClick={onClick}>{name}</button>);
+    : (<Button onClick={onClick}>{name}</Button>);
 }
 
 export default RestaurantTab;

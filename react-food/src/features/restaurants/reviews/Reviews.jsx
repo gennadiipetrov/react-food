@@ -1,11 +1,13 @@
 import Review from './review/Review';
 import ReviewForm from './review-form/ReviewForm';
 
+import styles from './style.module.css'
+
 const Reviews = ({prop}) => {
     return !prop
     ? (<div>No reviews</div>)
     : (
-        <div>
+        <div className={styles.reviews}>
             <ul>
                 {
                 prop.map(review => 

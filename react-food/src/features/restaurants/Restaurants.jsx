@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import Restaurant from './restaurant/Restaurant';
 import RestaurantTab from './restaurant-tab/RestaurantTab';
+import styles from './style.module.css'
 
 const Restaurants = ({prop}) => {
   const [restaurant, setRestaurant] = useState(prop[0]);
@@ -9,6 +10,7 @@ const Restaurants = ({prop}) => {
     ? (<div>No restaurants</div>)
     : (
       <div>
+        <div className={styles.tabs}>
         {
           prop.map(restaurant =>
             <RestaurantTab 
@@ -16,17 +18,9 @@ const Restaurants = ({prop}) => {
               onClick={()=>setRestaurant(restaurant)}
               name={`${restaurant.name}-${restaurant.id.slice(0, 4)}`}
             />
-          )}
-
-          <Restaurant prop={restaurant}/>
-
-          // TODO удалить
-          <Restaurant prop={restaurant}/>
-
-          <Restaurant prop={restaurant}/>
-
-          <Restaurant prop={restaurant}/>
-
+          )
+        } 
+        </div>
           <Restaurant prop={restaurant}/>
       </div>
     );

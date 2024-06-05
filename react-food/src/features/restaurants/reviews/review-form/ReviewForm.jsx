@@ -1,5 +1,7 @@
 import { useReducer } from "react";
 import { Rating } from "./rating/Rating";
+import Button from "@widgets/button/Button";
+import TextInput from "@widgets/inputs/text-input/TextInput";
 
 const initValue = { fio: '', message: '', rating: 0 };
 
@@ -27,15 +29,12 @@ const ReviewForm = () => {
                 <strong>Форма отзыва</strong>
             </p>
 
-            <div>
-                <label htmlFor="fio">ФИО:</label>
-                <input 
-                    type="text" 
-                    name="fio" 
-                    value={form.fio} 
-                    onChange={({target}) => dispatch({ type: "setFio", value: target.value })}
-                />
-            </div>
+            <TextInput
+              onChange={({target}) => dispatch({ type: "setFio", value: target.value })}
+              caption={"ФИО:"}
+              placeholder={"введите фио:"}
+              value={form.fio}
+            />
 
             <div>
                 <label htmlFor="message">Сообщение:</label>
@@ -55,13 +54,13 @@ const ReviewForm = () => {
               MAX={5}
             />
 
-            <button onClick = {() => {
+            <Button onClick = {() => {
 
                 // backend request
                 console.log(form);
                 
                 dispatch({ type: "init" });
-            }}>Сохранить</button>
+            }}>Сохранить</Button>
         </div>
     );
 }

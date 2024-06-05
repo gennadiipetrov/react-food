@@ -1,0 +1,17 @@
+.restaurant {
+    --header-title: var(--black);
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+
+    background: var(--white);
+    padding: 96px 27px 77px;
+}
+
+.restaurant__section {
+    color: var(--header-title);
+}
+

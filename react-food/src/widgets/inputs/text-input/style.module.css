@@ -1,0 +1,60 @@
+.textbox {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.textbox__caption {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    color: var(--grey-3);
+}
+
+.textbox__input {
+    background: var(--white);
+
+    width: 300px;
+
+    box-sizing: border-box;
+    border-radius: 8px;
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 26px;
+
+    color: var(--grey-4);
+
+    padding: 17px 50px 13px 24px;
+}
+
+.textbox__input_default {
+    border: 1px solid var(--grey-2);
+}
+
+.textbox__input_success {
+    border: 1px solid var(--grey-2);
+    background: url(../../../../assets/images/success.png) no-repeat scroll 16px 16px;
+    background-size: 29px;
+    background-position-x: 95%;
+}
+
+.textbox__input_invalid {
+    border: 1px solid var(--red);
+    background: url(../../../../assets/images/alert.png) no-repeat scroll 16px 16px;
+    background-size: 29px;
+    background-position-x: 95%;
+}
+
+.textbox__input_default:focus, .textbox__input_success:focus, .textbox__input_invalid:focus {
+    outline: 1px solid var(--blue-1);
+    border: 0px;
+}
