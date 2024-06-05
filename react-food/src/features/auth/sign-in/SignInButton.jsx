@@ -1,13 +1,15 @@
 import Button from '@widgets/button/Button';
-import {useState} from 'react';
+import {useState, useContext} from 'react';
 import SignInModal from '@widgets/modals/sign-in-modal/SignInModal';
+import {AuthContext} from '@shared/contexts/AuthContext'
 
-const SignInButton = ({onSignIn}) => {
+const SignInButton = () => {
     const [showAuth, setShowAuth] = useState(false);
+    const {setUserValue} = useContext(AuthContext);
 
     return (
         <>
-            <Button appearance="button_alternate" onClick={() => setShowAuth(true)}>
+            <Button onClick={() => setShowAuth(true)}>
                 Войти
             </Button>
 
@@ -15,7 +17,7 @@ const SignInButton = ({onSignIn}) => {
                 showAuth 
                 ? <SignInModal 
                     onClose={() => setShowAuth(false)}
-                    onEnter={onSignIn}
+                    onEnter={value => setUserValue(value)}
                 /> 
                 : null 
             }

@@ -1,27 +1,26 @@
 
 import "../../../../assets/css/main.css";
-import "./style.css";
+import styles from "./style.module.css";
 
 import TextInput from '@widgets/inputs/text-input/TextInput';
 import Button from '@widgets/button/Button';
 
-import { createPortal } from "react-dom";
+import {createPortal} from "react-dom";
 import {useState} from 'react';
 
 const SignInModal = ({onClose, onEnter}) => {
-
     const [userName, setUserName] = useState('');
 
     return (
         <>
             {createPortal(
-                <div id="backboard" className="modal">
-                <article id="modal" className="modal__window">
-                    <header className="modal__title">
+                <div id="backboard" className={styles.modal}>
+                <article id="modal" className={styles.modal__window}>
+                    <header className={styles.modal__title}>
                         Вход
                     </header>
 
-                    <div id="modal-close" className="modal__close-button" onClick={onClose}>
+                    <div id="modal-close" className={styles['modal__close-button']} onClick={onClose}>
 
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fillRule="evenodd" clipRule="evenodd"
@@ -34,7 +33,7 @@ const SignInModal = ({onClose, onEnter}) => {
 
                     </div>
 
-                    <main className="modal__content">
+                    <main className={styles.modal__content}>
                         Введите имя пользователя чтобы войти в систему
                         
                         <TextInput caption={'Имя'} onChange={event => setUserName(event.target.value)} placeholder="введи имя..."/>

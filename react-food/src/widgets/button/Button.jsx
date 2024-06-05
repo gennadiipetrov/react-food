@@ -1,8 +1,8 @@
 import "../../../assets/css/main.css";
-import "./style.css";
+import styles from"./style.module.css";
+import classNames from 'classnames'
 
-import {useContext} from 'react';
-import {ThemeSwitcherContext} from '@shared/contexts/ThemeSwitcherContext'
+import {useTheme} from '../../features/theme/theme-switcher/ThemeHook.js'
 
 /**
  * appearance
@@ -14,15 +14,18 @@ const Button = ({ children, onClick, appearance = "button_primary", disabled = f
 
     /**
      * TODO Пока так, по хорошему тему менять надо по-другому.
+     * Нужно это убрать и сделать на css переменных нормально
      */
-    const themeValue = useContext(ThemeSwitcherContext);
-
-    let classResult = themeValue ? "button button_alternate" : "button " + appearance;
-    if (small)
-        classResult += ' button_small';
+    const {themeValue} = useTheme();
 
     return <button 
-        className={classResult} 
+        className={classNames(styles.button,
+            {
+                [styles.button_small]: !!small,
+                [styles.button_alternate]: themeValue,
+                [styles.button_primary]: !themeValue,
+            }
+        ) } 
         disabled={disabled}
         onClick={onClick}>
             {children}

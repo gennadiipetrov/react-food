@@ -9,8 +9,8 @@ ReactDOM.createRoot(
     <>
       <ScrollProgressBarForDocument />
       <MainLayout>
-        <main class="preview">
-            <div class="preview__box">
+        <main className="preview">
+            <div className="preview__box">
                 <Restaurants prop={restaurants} />
             </div>
         </main>

@@ -1,34 +1,25 @@
 import Header from '../features/header/Header';
 import Footer from '../features/footer/Footer';
 
-import {useState} from 'react';
-import {ThemeSwitcherContext} from '@shared/contexts/ThemeSwitcherContext'
-import {AuthContext} from '@shared/contexts/AuthContext'
+import  ThemeProvider from '../features/theme/ThemeProvider';
+import  AuthProvider from '../features/auth/AuthProvider';
 
 import "../../assets/css/main.css";
 
 const MainLayout = ({ children }) =>  {
-    const [themeValue, setThemeValue] = useState(false);
-    const [authValue, setAuthValue] = useState(null);
-
   return (
-        <>
-            <AuthContext.Provider value={authValue}>
-                <div id="modal" style={{ position: "relative", zIndex: 2 }} />
-                <div id="popover" style={{ position: "relative", zIndex: 3 }} />
-                <div id="tooltip" style={{ position: "relative", zIndex: 4 }} />
-                <div style={{ zIndex: 1 }}>
-                    <Header 
-                        onToggleTheme={setThemeValue}
-                        onSignIn={setAuthValue}
-                    />
-                        <ThemeSwitcherContext.Provider value={themeValue}>
-                            {children}
-                        </ThemeSwitcherContext.Provider>
+        <AuthProvider>
+            <div id="modal" style={{ position: "relative", zIndex: 2 }} />
+            <div id="popover" style={{ position: "relative", zIndex: 3 }} />
+            <div id="tooltip" style={{ position: "relative", zIndex: 4 }} />
+            <div style={{ zIndex: 1 }}>
+                <ThemeProvider>
+                    <Header/>
+                        {children}
                     <Footer/>
-                </div>
-            </AuthContext.Provider>
-        </>
+                </ThemeProvider>
+            </div>
+        </AuthProvider>
     );
 }
 

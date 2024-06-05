@@ -1,11 +1,12 @@
 import "../../../../assets/css/main.css";
-import "./style.css";
+import styles from "./style.module.css";
+import classNames from "classnames";
 
 const TextInput = ({ onChange, caption, placeholder, value }) => {
     return (
-        <label className="textbox">
-            <p className="textbox__caption"> {caption} </p>
-            <input className="textbox__input textbox__input_default"
+        <label className={styles.textbox}>
+            <p className={styles.textbox__caption}> {caption} </p>
+            <input className={classNames(styles.textbox__input, styles.textbox__input_default)}
             type="text" 
             placeholder={placeholder} 
             onChange={onChange}

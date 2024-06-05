@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import Restaurant from './restaurant/Restaurant';
 import RestaurantTab from './restaurant-tab/RestaurantTab';
-import './style.css'
+import styles from './style.module.css'
 
 const Restaurants = ({prop}) => {
   const [restaurant, setRestaurant] = useState(prop[0]);
@@ -10,7 +10,7 @@ const Restaurants = ({prop}) => {
     ? (<div>No restaurants</div>)
     : (
       <div>
-        <div className='tabs'>
+        <div className={styles.tabs}>
         {
           prop.map(restaurant =>
             <RestaurantTab 

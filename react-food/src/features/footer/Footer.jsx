@@ -1,17 +1,16 @@
-import React from 'react';
 import "../../../assets/css/main.css";
-import "./style.css";
+import styles from "./style.module.css";
 
 const Footer = () => {
   return (
-    <footer class="footer">
-      <div class="footer__box">
-          <p class="footer__title"> Рестораны России </p>
-          <p class="footer__description">
-              2024
-          </p>
-      </div>
-  </footer>
+    <footer className={styles.footer}>
+        <div className={styles.footer__box}>
+            <p className={styles.footer__title}> Рестораны России </p>
+            <p className={styles.footer__description}>
+                2024
+            </p>
+        </div>
+    </footer>
   );
 }
 
