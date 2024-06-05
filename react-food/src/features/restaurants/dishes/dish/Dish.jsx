@@ -2,22 +2,27 @@ import Ingredients from './ingredients/Ingredients';
 import DishCounter from './dish-counter/DishCounter';
 
 import {AuthContext} from '@shared/contexts/AuthContext';
-import {useContext} from 'react';
+import {useContext,} from 'react';
+import {useSelector,} from 'react-redux';
 
-const Dish = ({prop}) => {
+const Dish = ({id}) => {
+
+  const dish = useSelector(
+    (state) => state.Dish.entities[id]
+  );
 
   const authContext = useContext(AuthContext);
 
-  return !prop
+  return !dish
   ? (<div>empty dish</div>)
   : (
       <div>
         <span> 
           <strong>Блюдо\цена:</strong>  
-          {prop.name}\{prop.price} &nbsp; { authContext != null ? <DishCounter price={prop.price}/> : null}
+          {dish.name}\{dish.price} &nbsp; { authContext != null ? <DishCounter price={dish.price}/> : null}
         </span>
 
-        <Ingredients prop={prop.ingredients}/>
+        <Ingredients dish={dish.ingredients}/>
       </div>
     );
 }

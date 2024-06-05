@@ -3,16 +3,16 @@ import ReviewForm from './review-form/ReviewForm';
 
 import styles from './style.module.css'
 
-const Reviews = ({prop}) => {
-    return !prop
+const Reviews = ({reviewIds}) => {
+    return !reviewIds
     ? (<div>No reviews</div>)
     : (
         <div className={styles.reviews}>
             <ul>
                 {
-                prop.map(review => 
-                        <li key={review.id}>
-                            <Review prop={review}/>
+                reviewIds.map(id => 
+                        <li key={id}>
+                            <Review id={id}/>
                         </li>
                     )
                 }

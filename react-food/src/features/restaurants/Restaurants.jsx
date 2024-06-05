@@ -2,17 +2,22 @@ import {useState} from 'react'
 import Restaurant from './restaurant/Restaurant';
 import RestaurantTab from './restaurant-tab/RestaurantTab';
 import styles from './style.module.css'
+import {useSelector} from 'react-redux';
 
-const Restaurants = ({prop}) => {
-  const [restaurant, setRestaurant] = useState(prop[0]);
+const Restaurants = () => {
+  const restaurants = useSelector(
+    (state) => Object.values(state.Restaurant.entities).map(({id, name}) =>({id, name}))
+  );
 
-  return !prop 
+  const [restaurant, setRestaurant] = useState(restaurants[0]);
+
+  return !restaurants 
     ? (<div>No restaurants</div>)
     : (
       <div>
         <div className={styles.tabs}>
         {
-          prop.map(restaurant =>
+          restaurants.map(restaurant =>
             <RestaurantTab 
               key={restaurant.id} 
               onClick={()=>setRestaurant(restaurant)}
@@ -21,7 +26,7 @@ const Restaurants = ({prop}) => {
           )
         } 
         </div>
-          <Restaurant prop={restaurant}/>
+          <Restaurant restaurantId={restaurant.id}/>
       </div>
     );
 }

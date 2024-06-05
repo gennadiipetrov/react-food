@@ -1,15 +1,15 @@
 import Dish from './dish/Dish';
 import styles from './style.module.css';
 
-const Dishes = ({prop}) => {
-  return !prop
+const Dishes = ({menuIds}) => {
+  return !menuIds
   ? (<div>No dishes</div>)
   : (
         <ul className={styles.dishes}>
             {
-            prop?.map(dish => 
-                <li key={dish.id}>
-                    <Dish prop={dish}/>
+            menuIds?.map(id => 
+                <li key={id}>
+                    <Dish id={id}/>
                 </li>
             )
             }

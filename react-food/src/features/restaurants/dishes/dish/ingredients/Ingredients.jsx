@@ -1,9 +1,7 @@
-import React from 'react';
-
-const Ingredients = ({prop}) => {
+const Ingredients = ({dish}) => {
   return  (
       <div>
-        <strong>Ингридиенты:</strong> { prop.join(',')}
+        <strong>Ингридиенты:</strong> { dish.join(',')}
       </div>
     );
 }

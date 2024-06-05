@@ -1,9 +1,16 @@
-const Review = ({prop}) => {
-  return !prop
+import {useSelector,} from 'react-redux';
+
+const Review = ({id}) => {
+
+  const review = useSelector(
+    (state) => state.Review.entities[id]
+  );
+
+  return !review
   ? (<div>empty review</div>)
   :  (
       <div>
-        {prop.user}-{prop.rating}-{prop.text}
+        {review.user}-{review.rating}-{review.text}
       </div>
     );
 }

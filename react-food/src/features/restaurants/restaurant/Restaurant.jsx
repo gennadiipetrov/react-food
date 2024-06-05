@@ -1,20 +1,24 @@
 import Dishes from '../dishes/Dishes';
 import Reviews from '../reviews/Reviews';
-
 import styles from './style.module.css'
+import {useSelector} from 'react-redux';
 
-const Restaurant = ({prop}) => {
-  return !prop 
+const Restaurant = ({restaurantId}) => {
+  const restaurant = useSelector(
+    (state) => state.Restaurant.entities[restaurantId]
+  );
+
+  return !restaurant 
     ? (<div>No restaurant</div>)
     : (
         <div className={styles.restaurant}>
-          <h2 className={styles.restaurant__section}> Ресторан - <strong>{prop.name}</strong> </h2>
+          <h2 className={styles.restaurant__section}> Ресторан - <strong>{restaurant.name}</strong> </h2>
 
           <h3 className={styles.restaurant__section}> Меню </h3>
-          <Dishes prop={prop.menu}/>
+          <Dishes menuIds={restaurant.menu}/>
 
           <h3 className={styles.restaurant__section}> Отзывы </h3>
-          <Reviews prop={prop.reviews}/>
+          <Reviews reviewIds={restaurant.reviews}/>
         </div>
     );
 }
