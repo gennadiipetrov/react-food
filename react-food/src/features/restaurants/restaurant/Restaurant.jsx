@@ -4,9 +4,9 @@ import styles from './style.module.css'
 import {useSelector} from 'react-redux';
 
 const Restaurant = ({restaurantId}) => {
-  const restaurant = useSelector(
-    (state) => state.Restaurant.entities[restaurantId]
-  );
+    const restaurant = restaurantId ? useSelector(
+      (state) => Object.values(state.Restaurant.entities).find(value => value.id === restaurantId)
+    ) : null;
 
   return !restaurant 
     ? (<div>No restaurant</div>)
