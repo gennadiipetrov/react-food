@@ -1,27 +1,19 @@
 import {useState} from 'react'
 import Restaurant from './restaurant/Restaurant';
 import RestaurantTab from './restaurant-tab/RestaurantTab';
+import RestaurantTabs from './restaurant-tab/RestaurantTabs';
 import styles from './style.module.css'
 
-const Restaurants = ({prop}) => {
-  const [restaurant, setRestaurant] = useState(prop[0]);
+const Restaurants = () => {
+  const [activeRestaurantId, setActiveRestaurantId] = useState(null);
 
-  return !prop 
-    ? (<div>No restaurants</div>)
-    : (
+  return (
       <div>
         <div className={styles.tabs}>
-        {
-          prop.map(restaurant =>
-            <RestaurantTab 
-              key={restaurant.id} 
-              onClick={()=>setRestaurant(restaurant)}
-              name={`${restaurant.name}-${restaurant.id.slice(0, 4)}`}
-            />
-          )
-        } 
+          { <RestaurantTabs onTabClick={id => setActiveRestaurantId(id)}/> } 
         </div>
-          <Restaurant prop={restaurant}/>
+
+        <Restaurant restaurantId={activeRestaurantId}/>
       </div>
     );
 }
