@@ -1,6 +1,5 @@
 import {useState} from 'react'
 import Restaurant from './restaurant/Restaurant';
-import RestaurantTab from './restaurant-tab/RestaurantTab';
 import RestaurantTabs from './restaurant-tab/RestaurantTabs';
 import styles from './style.module.css'
 
