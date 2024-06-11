@@ -1,16 +1,13 @@
 import RestaurantTab from './RestaurantTab';
-import {useSelector} from 'react-redux';
 
-const RestaurantTabs = ({onTabClick}) => {
-  const restaurantsIds = useSelector(state => state.Restaurant.ids);
-
+const RestaurantTabs = ({onTabClick, restaurants}) => {
   return (
     <>
       {
-        restaurantsIds.map(id =>
+        restaurants && restaurants.map(r =>
           <RestaurantTab
-            key={id}
-            id={id}
+            key={r.id}
+            restaurant={r}
             onTabClick={onTabClick}
           />
         )

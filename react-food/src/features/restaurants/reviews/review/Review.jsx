@@ -1,11 +1,4 @@
-import {useSelector,} from 'react-redux';
-
-const Review = ({id}) => {
-
-  const review = useSelector(
-    (state) => state.Review.entities[id]
-  );
-
+const Review = ({review}) => {
   return !review
   ? (<div>empty review</div>)
   :  (
