@@ -3,12 +3,8 @@ import DishCounter from './dish-counter/DishCounter';
 
 import {AuthContext} from '@shared/contexts/AuthContext';
 import {useContext} from 'react';
-import {useSelector} from 'react-redux';
 
-import { selectDishById } from '../../../../redux/entities/dish/Selectors';
-
-const Dish = ({id}) => {
-  const dish = useSelector(state =>selectDishById(state, id));
+const Dish = ({dish}) => {
   const authContext = useContext(AuthContext);
 
   return !dish
